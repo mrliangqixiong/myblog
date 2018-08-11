@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block main %}
+    {{ block.super }}
+    <h1>个人信息修改</h1>
+    <hr>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <img src="{{ user.headshot.url }}"/>
+        <input type="file" name="headshot">
+        <input type="submit" value="提交">
+    </form>
+{% endblock %}
